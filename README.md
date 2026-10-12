@@ -2,6 +2,8 @@
 
 schema-evolution-grader grades the compatibility of a JSON Schema change: given the old and new schema, it returns FULL_COMPAT, BACKWARD_COMPAT, FORWARD_COMPAT, or BREAKING — worst rule wins — plus the per-rule notes explaining the verdict. Use it in CI to catch breaking schema changes before they ship to producers or consumers. Confidence: High (≥80%) for the covered rule set, per the 69-check suite.
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 Schemas evolve silently breaking: a `required` field added here, an enum value removed there, `minimum` tightened somewhere else. Each is fine locally and breaks a producer or consumer you are not looking at. Documentation-level review catches none of this reliably, and full validation testing needs real documents from every direction. A rule-based compatibility verdict on the *schemas themselves* closes the gap cheaply.
